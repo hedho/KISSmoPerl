@@ -47,17 +47,18 @@ __DATA__
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Pastebin</title>
+    <title>KISSmo Perl Version 0.7 stable</title>
     <link rel="stylesheet" href="https://ssl.gstatic.com/docs/script/css/add-ons1.css">
 </head>
 <body>
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="HandheldFriendly" content="true">
-
-    <center><h1>Pastebin</h1></center>
+    <center><br>
+    <img src="https://i.imgur.com/zJuCchl.png" alt="the logo" width="340px" height="120px">
+    <h1>KISSmo Perl Version 0.7 stable</h1></center>
     <center><form method="post">
-        <textarea name="content" style="margin: 0px; width: 1078px; height: 356px;"></textarea>
+        <textarea name="content" style="margin: 0px; width: 70%; height: 430px; background: aliceblue; color: black;"></textarea>
         </br>
 	<input type="submit" value="Create paste"></center>
     </form>
