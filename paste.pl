@@ -83,7 +83,7 @@ __DATA__
 <!DOCTYPE html>
 <html>
 <head>
-    <title>KISSmo Perl Version 0.7 stable</title>
+    <title>KISSmo Perl Version 1.1 stable</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <style>
         body {
@@ -118,7 +118,7 @@ __DATA__
 </head>
 <body>
     <div class="container">
-        <h1>KISSmo Perl Version 0.7 stable</h1>
+        <h1>KISSmo Perl Version 1.1 stable</h1>
         <form method="post">
             <div class="form-group">
                 <textarea name="content" class="form-control" placeholder="Enter your content" rows="10"></textarea>
