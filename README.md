@@ -45,3 +45,7 @@ To access the raw content of a paste, you can click the "RAW" button on the past
 That's it! You have successfully set up and run the Perl script. You can continue using the application by creating and accessing pastes through the web interface.
 
 **Note**: Remember to keep the terminal running while you want the application to be accessible. You can stop the application by pressing Ctrl+C in the terminal.
+
+### Demo:
+
+https://paste.hax.al/
