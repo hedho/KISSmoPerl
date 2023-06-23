@@ -17,7 +17,8 @@ This command uses the `cpanm` tool to install the necessary modules (`Mojoliciou
 
 The code uses an SQLite database to store the pastes. Create an empty SQLite database file named `pastes.db` in the same directory as the Perl script. You can do this with the following command:
 
-`touch pastes.db` 
+`touch pastes.db && mkdir pastes` 
+
 
 ### Step 3: Run the Perl Script
 
