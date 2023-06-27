@@ -29,7 +29,7 @@ post '/' => sub {
         write_file("pastes/$id.txt", $content);
         $c->redirect_to("/$id");
     } else {
-        $c->render(text => "Invalid paste content");
+        $c->render(template => 'invalid_content');
     }
 };
 
@@ -43,7 +43,8 @@ get '/:id' => sub {
         $paste->{expires_human} = format_expires($paste->{expires});
         $c->render(template => 'paste', paste => $paste);
     } else {
-        $c->render(text => "Paste not found");
+        $c->res->code(404);
+        $c->render(template => 'invalid_link');
     }
 };
 
@@ -57,7 +58,24 @@ get '/raw/:id' => sub {
         $c->res->headers->content_type('text/plain');
         $c->render(text => $content);
     } else {
-        $c->render(text => "Paste not found");
+        $c->res->code(404);
+        $c->render(template => 'invalid_link');
+    }
+};
+
+get '/download/:id' => sub {
+    my $c = shift;
+    my $id = $c->param('id');
+    my $sth = $dbh->prepare("SELECT content FROM pastes WHERE id = ?");
+    $sth->execute($id);
+    my ($content) = $sth->fetchrow_array;
+    if ($content) {
+        $c->res->headers->content_type('text/plain');
+        $c->res->headers->content_disposition("attachment; filename=$id.txt");
+        $c->render(text => $content);
+    } else {
+        $c->res->code(404);
+        $c->render(template => 'invalid_link');
     }
 };
 
@@ -81,16 +99,8 @@ __DATA__
 
 @@ index.html.ep
 <!DOCTYPE html>
-<?php
-   if (substr_count($_SERVER[HTTP_ACCEPT_ENCODING], gzip))
-   ob_start(ob_gzhandler);
-   else ob_start();
-?>
 <html>
 <head>
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta name="HandheldFriendly" content="true">
     <title>KISSmo Perl Version 1.1 stable</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <style>
@@ -125,6 +135,14 @@ __DATA__
     </style>
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">KISSMO</a>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/">Home</a>
+            </li>
+        </ul>
+    </nav>
     <div class="container">
         <h1>KISSmo Perl Version 1.1 stable</h1>
         <form method="post">
@@ -146,16 +164,8 @@ __DATA__
 
 @@ paste.html.ep
 <!DOCTYPE html>
-<?php
-   if (substr_count($_SERVER[HTTP_ACCEPT_ENCODING], gzip))
-   ob_start(ob_gzhandler);
-   else ob_start();
-?>
 <html>
 <head>
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta name="HandheldFriendly" content="true">
     <title>Paste</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <style>
@@ -182,14 +192,173 @@ __DATA__
     </style>
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">KISSMO</a>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/">Home</a>
+            </li>
+        </ul>
+    </nav>
     <div class="container">
         <h1>Paste</h1>
         <pre><%= $paste->{content} %></pre>
         <a href="/raw/<%= $paste->{id} %>" class="btn btn-primary">RAW</a>
+        <a href="/download/<%= $paste->{id} %>" class="btn btn-primary">Download</a>
         <p>Expires: <%= $paste->{expires_human} %></p>
     </div>
     <footer class="footer">
         <p>This pastebin script has been developed by Arianit. The source code can be found at <a href="https://github.com/hedho">GitHub</a>.</p>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+@@ invalid_content.html.ep
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Invalid Content</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 800px;
+            margin-top: 50px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .alert {
+            margin-top: 30px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">KISSMO</a>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/">Home</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>Invalid Content</h1>
+        <div class="alert alert-danger" role="alert">
+            Please enter valid content.
+        </div>
+    </div>
+    <footer class="footer">
+        <p>This pastebin script has been developed by Arianit. The source code can be found at <a href="https://github.com/hedho/KISSmoPerl">GitHub</a>.</p>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+@@ invalid_link.html.ep
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Invalid Link</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 800px;
+            margin-top: 50px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .alert {
+            margin-top: 30px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">KISSMO</a>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/">Home</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>Invalid Link</h1>
+        <div class="alert alert-danger" role="alert">
+            The link you requested is invalid or has expired.
+        </div>
+    </div>
+    <footer class="footer">
+        <p>This pastebin script has been developed by Arianit. The source code can be found at <a href="https://github.com/hedho/KISSmoPerl">GitHub</a>.</p>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+@@ not_found.html.ep
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Invalid Link</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 800px;
+            margin-top: 50px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .alert {
+            margin-top: 30px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">KISSMO</a>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/">Home</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>Invalid Link</h1>
+        <div class="alert alert-danger" role="alert">
+            The link you requested is invalid or has expired.
+        </div>
+    </div>
+    <footer class="footer">
+        <p>This pastebin script has been developed by Arianit. The source code can be found at <a href="https://github.com/hedho/KISSmoPerl">GitHub</a>.</p>
     </footer>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
