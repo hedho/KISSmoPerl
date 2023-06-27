@@ -11,6 +11,12 @@ Before running the code, you need to install the required Perl modules. Open you
 
 `cpanm Mojolicious DBI File::Slurp` 
 
+or
+
+`cpan install Mojolicious::Lite` 
+`cpan install DBI` 
+`cpan install File::Slurp`
+
 This command uses the `cpanm` tool to install the necessary modules (`Mojolicious`, `DBI`, and `File::Slurp`). If you don't have `cpanm` installed, you can install it by running `cpan App::cpanminus`.
 
 ### Step 2: Create the SQLite Database
