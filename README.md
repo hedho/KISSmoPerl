@@ -1,5 +1,5 @@
-# KPsm
-Kissmo perl version
+# KP
+KISSmo perl version
 
 ## Setting up and Running the KISSmo Perl
 
