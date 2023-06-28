@@ -1,8 +1,4 @@
 
-# KISSmo 1.1.7 Release note
-
-https://github.com/hedho/KISSmoPerl/releases/tag/v1.1.7
-
 ## Setting up and Running the KISSmo Perl
 
 To set up and run the Perl code you provided, follow the steps below. This guide assumes you are using a Unix-like system (e.g., Linux or macOS) and have Perl installed.
@@ -55,6 +51,10 @@ To access the raw content of a paste, you can click the "RAW" button on the past
 That's it! You have successfully set up and run the Perl script. You can continue using the application by creating and accessing pastes through the web interface.
 
 **Note**: Remember to keep the terminal running while you want the application to be accessible. You can stop the application by pressing Ctrl+C in the terminal.
+
+# KISSmo 1.1.7 Release note
+
+https://github.com/hedho/KISSmoPerl/releases/tag/v1.1.7
 
 ### Demo:
 
