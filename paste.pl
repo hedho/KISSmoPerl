@@ -126,9 +126,9 @@ __DATA__
             height: 300px;
             resize: none;
         }
-        .btn-primary {
-            background-color: #007bff;
-            border-color: #007bff;
+	.btn-primary {
+            background-color: #00a6ff;
+            border-color: #00a6ff;
         }
         .btn-primary:hover {
             background-color: #0069d9;
@@ -137,7 +137,7 @@ __DATA__
         .footer {
             text-align: center;
             margin-top: 50px;
-            background-color: #007bff;
+            background-color: #00a6ff;
             color: #fff;
             width: 100%;
             position: fixed;
@@ -207,7 +207,7 @@ __DATA__
         .footer {
             text-align: center;
             margin-top: 50px;
-            background-color: #007bff;
+            background-color: #00a6ff;
             color: #fff;
             width: 100%;
             position: fixed;
@@ -271,7 +271,7 @@ __DATA__
         .footer {
             text-align: center;
             margin-top: 50px;
-            background-color: #007bff;
+            background-color: #00a6ff;
             color: #fff;
             width: 100%;
             position: fixed;
@@ -334,7 +334,7 @@ __DATA__
         .footer {
             text-align: center;
             margin-top: 50px;
-            background-color: #007bff;
+            background-color: #00a6ff;
             color: #fff;
             width: 100%;
             position: fixed;
@@ -397,7 +397,7 @@ __DATA__
         .footer {
             text-align: center;
             margin-top: 50px;
-            background-color: #007bff;
+            background-color: #00a6ff;
             color: #fff;
             width: 100%;
             position: fixed;
