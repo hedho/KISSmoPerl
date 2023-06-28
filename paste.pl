@@ -111,7 +111,7 @@ __DATA__
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <style>
         body {
-            background-color: #f8f9fa;
+            background-color: #9f9f9f33;
         }
         .container {
             max-width: 800px;
@@ -189,7 +189,7 @@ __DATA__
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <style>
         body {
-            background-color: #f8f9fa;
+            background-color: #9f9f9f33;
         }
         .container {
             max-width: 800px;
@@ -255,7 +255,7 @@ __DATA__
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <style>
         body {
-            background-color: #f8f9fa;
+            background-color: #9f9f9f33;
         }
         .container {
             max-width: 800px;
@@ -318,7 +318,7 @@ __DATA__
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <style>
         body {
-            background-color: #f8f9fa;
+            background-color: #9f9f9f33;
         }
         .container {
             max-width: 800px;
@@ -381,7 +381,7 @@ __DATA__
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <style>
         body {
-            background-color: #f8f9fa;
+            background-color: #9f9f9f33;
         }
         .container {
             max-width: 800px;
