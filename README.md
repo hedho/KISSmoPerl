@@ -1,7 +1,7 @@
 
 ## Setting up and Running the KISSmo Perl
 
-To set up and run the Perl code you provided, follow the steps below. This guide assumes you are using a Unix-like system (e.g., Linux or macOS) and have Perl installed.
+To set up and run the Perl code you provided, follow the steps below. This guide assumes you are using a Unix-like system (e.g., Linux or *BSD or macOS) and have Perl installed.
 
 ### Step 1: Install Required Modules
 
