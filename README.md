@@ -1,6 +1,7 @@
 
-# KP
-KISSmo perl version
+# KISSmo 1.1.7 Release note
+
+https://github.com/hedho/KISSmoPerl/releases/tag/v1.1.7
 
 ## Setting up and Running the KISSmo Perl
 
