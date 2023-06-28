@@ -23,7 +23,7 @@ post '/' => sub {
 
     if ($content =~ /\w/) {  # Check if content contains any word character
         my $expires = time() + (60 * 60 * 24 * 60); # 60 days from now
-        my $id = int(rand(1000000));
+        my $id = int(rand(1000000000));
         my $sth = $dbh->prepare("INSERT INTO pastes (id, content, expires) VALUES (?, ?, ?)");
         $sth->execute($id, $content, $expires);
         write_file("pastes/$id.txt", $content);
