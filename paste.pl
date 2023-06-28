@@ -87,17 +87,20 @@ sub format_expires {
     my $current_time = time();
 
     if ($expires > $current_time) {
-        my $remaining_seconds = $expires - $current_time;
-        my $remaining_days = int($remaining_seconds / (60 * 60 * 24));
-        return "In $remaining_days days";
-    } else {
-        return "Expired";
+        my $seconds_remaining = $expires - $current_time;
+        my $days = int($seconds_remaining / (60 * 60 * 24));
+        my $hours = int(($seconds_remaining % (60 * 60 * 24)) / (60 * 60));
+        my $minutes = int(($seconds_remaining % (60 * 60)) / 60);
+        return sprintf("%d days, %02d:%02d", $days, $hours, $minutes);
     }
+
+    return 'Expired';
 }
 
 __DATA__
 
 @@ index.html.ep
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -134,6 +137,16 @@ __DATA__
         .footer {
             text-align: center;
             margin-top: 50px;
+            background-color: #007bff;
+            color: #fff;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            padding: 15px;
+        }
+        .footer a {
+            color: #ffc107; /* Set the link color to bright yellow */
         }
     </style>
 </head>
@@ -164,8 +177,8 @@ __DATA__
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </body>
 </html>
-
 @@ paste.html.ep
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -194,6 +207,16 @@ __DATA__
         .footer {
             text-align: center;
             margin-top: 50px;
+            background-color: #007bff;
+            color: #fff;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            padding: 15px;
+        }
+        .footer a {
+            color: #ffc107; /* Set the link color to bright yellow */
         }
     </style>
 </head>
@@ -220,8 +243,8 @@ __DATA__
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </body>
 </html>
-
 @@ invalid_content.html.ep
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -248,6 +271,16 @@ __DATA__
         .footer {
             text-align: center;
             margin-top: 50px;
+            background-color: #007bff;
+            color: #fff;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            padding: 15px;
+        }
+        .footer a {
+            color: #ffc107; /* Set the link color to bright yellow */
         }
     </style>
 </head>
@@ -273,8 +306,8 @@ __DATA__
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </body>
 </html>
-
 @@ invalid_link.html.ep
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -301,6 +334,16 @@ __DATA__
         .footer {
             text-align: center;
             margin-top: 50px;
+            background-color: #007bff;
+            color: #fff;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            padding: 15px;
+        }
+        .footer a {
+            color: #ffc107; /* Set the link color to bright yellow */
         }
     </style>
 </head>
@@ -326,8 +369,8 @@ __DATA__
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </body>
 </html>
-
 @@ not_found.html.ep
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -354,6 +397,16 @@ __DATA__
         .footer {
             text-align: center;
             margin-top: 50px;
+            background-color: #007bff;
+            color: #fff;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            padding: 15px;
+        }
+        .footer a {
+            color: #ffc107; /* Set the link color to bright yellow */
         }
     </style>
 </head>
@@ -367,9 +420,9 @@ __DATA__
         </ul>
     </nav>
     <div class="container">
-        <h1>Invalid Link</h1>
+        <h1>Not Found</h1>
         <div class="alert alert-danger" role="alert">
-            The link you requested is invalid or has expired.
+            The page you requested was not found.
         </div>
     </div>
     <footer class="footer">
