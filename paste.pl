@@ -107,7 +107,7 @@ __DATA__
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="HandheldFriendly" content="true">
-    <title>KISSmo Perl Version 1.1 stable</title>
+    <title>KISSmo Perl Version 1.1.7 stable</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <style>
         body {
@@ -140,7 +140,7 @@ __DATA__
             background-color: #00a6ff;
             color: #fff;
             width: 100%;
-            position: fixed;
+            position: relative;
             bottom: 0;
             left: 0;
             padding: 15px;
@@ -160,7 +160,7 @@ __DATA__
         </ul>
     </nav>
     <div class="container">
-        <h1>KISSmo Perl Version 1.1 stable</h1>
+        <h1>KISSmo Perl Version 1.1.7 stable</h1>
         <form method="post">
             <div class="form-group">
                 <textarea name="content" class="form-control" placeholder="Enter your content" rows="10"></textarea>
@@ -210,7 +210,7 @@ __DATA__
             background-color: #00a6ff;
             color: #fff;
             width: 100%;
-            position: fixed;
+            position: relative;
             bottom: 0;
             left: 0;
             padding: 15px;
@@ -274,7 +274,7 @@ __DATA__
             background-color: #00a6ff;
             color: #fff;
             width: 100%;
-            position: fixed;
+            position: relative;
             bottom: 0;
             left: 0;
             padding: 15px;
@@ -337,7 +337,7 @@ __DATA__
             background-color: #00a6ff;
             color: #fff;
             width: 100%;
-            position: fixed;
+            position: relative;
             bottom: 0;
             left: 0;
             padding: 15px;
@@ -400,7 +400,7 @@ __DATA__
             background-color: #00a6ff;
             color: #fff;
             width: 100%;
-            position: fixed;
+            position: relative;
             bottom: 0;
             left: 0;
             padding: 15px;
