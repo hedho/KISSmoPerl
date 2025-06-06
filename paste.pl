@@ -113,7 +113,7 @@ __DATA__
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="HandheldFriendly" content="true">
-    <title>KISSmo Perl Version 1.1.7 stable</title>
+    <title>KISSmo Perl Version 1.9 stable</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <style>
         body {
@@ -169,7 +169,7 @@ __DATA__
         </ul>
     </nav>
     <div class="container">
-        <h1>KISSmo Perl Version 1.1.7 stable</h1>
+        <h1>KISSmo Perl Version 1.9 stable</h1>
         <form method="post">
             <div class="form-group">
                 <textarea name="content" class="form-control" placeholder="Enter your content" rows="10"></textarea>
@@ -180,7 +180,7 @@ __DATA__
         </form>
     </div>
     <footer class="footer">
-        <p>This pastebin script has been developed by Arianit. The source code can be found at <a href="https://man.hax.al/cgit/KISSmoPerl/about">HAX.AL repositories</a>.</p>
+        <p>This pastebin script has been developed by Arianit. The source code can be found at <a href="https://git.hax.al/KISSmoPerl/about/">Source code & About</a>.</p>
     </footer>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
